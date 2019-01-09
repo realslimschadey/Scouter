@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         temp = textField.text!
         team870Scouting.text = temp
         
-        let url = URL(string: "http://www.thisismylink.com/postName.php")!
+        let url = URL(string: "http://192.168.16.75")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
