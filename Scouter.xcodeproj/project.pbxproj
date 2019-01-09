@@ -97,9 +97,9 @@
 		FFDB150821E557E00018912A /* Scouter */ = {
 			isa = PBXGroup;
 			children = (
+				FFDB150D21E557E00018912A /* Main.storyboard */,
 				FFDB150921E557E00018912A /* AppDelegate.swift */,
 				FFDB150B21E557E00018912A /* ViewController.swift */,
-				FFDB150D21E557E00018912A /* Main.storyboard */,
 				FFDB151021E557E10018912A /* Assets.xcassets */,
 				FFDB151221E557E10018912A /* LaunchScreen.storyboard */,
 				FFDB151521E557E10018912A /* Info.plist */,
