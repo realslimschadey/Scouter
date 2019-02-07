@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -25,8 +26,8 @@ class ViewController: UIViewController {
         clickCount += 1
         temp = textField.text!
         team870Scouting.text = temp
-        
-        let url = URL(string: "http://192.168.16.75")!
+        /**
+        let url = URL(string: "http://54.210.236.166")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -49,6 +50,79 @@ class ViewController: UIViewController {
         task.resume()
         
     }
+                **/
+        
+        /**
+        struct Order: Codable {
+            let customerId: String
+            let items: [String]
+        }
+        
+        // ...
+        
+        let order = Order(customerId: "12345",
+                          items: ["Cheese pizza", "Diet soda"])
+        guard let uploadData = try? JSONEncoder().encode(order) else {
+            return
+        }
+        
+        let url = URL(string: "http://54.210.236.166")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
+            if let error = error {
+                print ("error: \(error)")
+                return
+            }
+            guard let response = response as? HTTPURLResponse,
+                (200...299).contains(response.statusCode) else {
+                    print ("server error")
+                    return
+            }
+            
+        }
+        task.resume()
+ 
+ **/
+        let myUrl = URL(string: "http://54.210.236.166/hi.php");
+        
+        var request = URLRequest(url:myUrl!)
+        
+        request.httpMethod = "POST"// Compose a query string
+        
+        let postString = "firstName=James&lastName=Bond";
+        
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            print("response = \(String(describing: response))")
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                
+                if let parseJSON = json {
+                    
+                    // Now we can access value of First Name by its key
+                    let firstNameValue = parseJSON["firstName"] as? String
+                    print("firstNameValue: \(String(describing: firstNameValue))")
+                }
+            } catch {
+                print(error)
+            }
+        }
+        task.resume()
+        
+        
     
 }
 
+}
