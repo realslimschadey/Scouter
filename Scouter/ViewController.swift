@@ -7,25 +7,69 @@
 //
 
 import UIKit
-
+import Firebase
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirebaseApp.configure()
         // Do any additional setup after loading the view, typically from a nib.
     }
     var temp: String = ""
     var clickCount = 0
+    var scouter: String = ""
+    
     
     @IBOutlet weak var team870Scouting: UILabel!
     
     @IBOutlet weak var textField: UITextField!
     
+    @IBOutlet weak var ScoutName: UITextField!
+    
     @IBAction func submitButton(_ sender: Any) {
         clickCount += 1
         temp = textField.text!
         team870Scouting.text = temp
+        
+        scouter = ScoutName.text!
+        
+
+
+        
+        //let db = Database.database().reference()
+        let FRCteams = Database.database().reference().child("Match Number")
+        //db.setValue("Hello Firebase")
+        FRCteams.setValue(temp)
+        
+        
+        let matchNo = Database.database().reference().child("Scouter Name")
+        matchNo.setValue(scouter)
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         /**
         let url = URL(string: "http://54.210.236.166")!
         var request = URLRequest(url: url)
@@ -85,7 +129,7 @@ class ViewController: UIViewController {
         }
         task.resume()
  
- **/
+        //////
         let myUrl = URL(string: "http://54.210.236.166/hi.php");
         
         var request = URLRequest(url:myUrl!)
@@ -120,9 +164,8 @@ class ViewController: UIViewController {
             }
         }
         task.resume()
+         **/
         
-        
-    
-}
 
+}
 }

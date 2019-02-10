@@ -71,6 +71,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="ScouterName:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="byh-Zm-aEq"/>
+                                </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCV-Ua-d5F">
                                 <rect key="frame" x="142" y="206" width="49" height="31"/>
@@ -100,6 +103,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="ScoutName" destination="pyn-80-5sn" id="eU4-vm-Euv"/>
                         <outlet property="team870Scouting" destination="8L7-RE-sid" id="bDL-H4-0BB"/>
                         <outlet property="textField" destination="c5n-b0-PxO" id="WsX-1r-4Qa"/>
                     </connections>

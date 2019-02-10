@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //MiFirebaseApp.configure()
+        
+        //let db = Database.database().reference()
+        //let FRCteams = Database.database().reference().child("Team")
+        //db.setValue("Hello Firebase")
+        //FRCteams.setValue("870")
+        
+        
+        /**
+        let messageDB = Database.database().reference().child("Team")
+        
+        messageDB.observe(.childAdded, with: { snapshot in
+            
+            let snapshotValue = snapshot.value as! NSDictionary
+            let sender = snapshotValue["Team"] as! String
+        })
+        print(messageDB)
+        **/
+       
         // Override point for customization after application launch.
         return true
     }
